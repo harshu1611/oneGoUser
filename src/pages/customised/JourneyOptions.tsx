@@ -5,12 +5,13 @@ import TrainCardOptions from "../../components/TrainCardOptions";
 import TrainCard from "../../components/TrainCard";
 import TaxiCard from "../../components/TaxiCard";
 
-
-
+import { trainDummy } from "../../dummy";
+import { cabDummy } from "../../dummy";
 const JourneyOptions: React.FC=()=>{
     const history=useHistory();
     const [showJourney, setShowJourney]=useState(false)
     const [selectedType, setSelectedType] =useState("Trains")
+
     console.log(showJourney)
     return(
         <div className="flex flex-col h-full">
@@ -66,16 +67,16 @@ const JourneyOptions: React.FC=()=>{
             <div className="overflow-scroll h-full">
             {selectedType=="Trains" ?
             <div className="flex flex-col space-y-1 overflow-y-scroll">
-                {/* <TrainCard/>
-                <TrainCard/>
-                <TrainCard/> */}
+                <TrainCard data={trainDummy[1]} urlTo="/custom/journeyDetails"/>
+                {/* <TrainCard  data={trainDummy[0]}/>
+                <TrainCard  data={trainDummy[0]}/> */}
             </div>
             : selectedType=="Taxi" ?
             
              <div className="flex flex-col h-full space-y-1 overflow-y-scroll overflow-scroll">
-            <TaxiCard/>
-                <TaxiCard/>
-                <TaxiCard/>
+            <TaxiCard data={cabDummy[0]} urlTo="/custom/journeyDetails"/>
+                {/* <TaxiCard/>
+                <TaxiCard/> */}
                 </div>
           
                 

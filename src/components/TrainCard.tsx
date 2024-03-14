@@ -12,7 +12,7 @@ import { updateJourney, updateUID } from "../redux/states/User";
 
 
 
-const TrainCard: React.FC<{data:any }> = ({data}) => { 
+const TrainCard: React.FC<{data:any, urlTo : string }> = ({data, urlTo}) => { 
 
     const dispatch=useAppDispatch()
    const history= useHistory();
@@ -49,7 +49,7 @@ const TrainCard: React.FC<{data:any }> = ({data}) => {
        
         // e.preventDefault()
 
-        history.push("/custom/secondJourney")
+        history.push(urlTo)
         history.go(0)
      }}>Select Train</button>
     {/* </Link> */}

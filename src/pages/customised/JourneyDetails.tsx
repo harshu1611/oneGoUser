@@ -2,7 +2,7 @@ import { IonPage } from "@ionic/react";
 import React from "react";
 import { useHistory } from "react-router";
 import TrainCardOptions from "../../components/TrainCardOptions";
-import { trainDummy } from "../../dummy";
+import { cabDummy, trainDummy } from "../../dummy";
 import TaxiCard from "../../components/TaxiCard";
 
 const JourneyDetails: React.FC=()=>{
@@ -25,7 +25,7 @@ const JourneyDetails: React.FC=()=>{
             </div>
             <TrainCardOptions data={trainDummy[0]}/>
             <h1 className="text-xl text-black">+</h1>
-            <TaxiCard/>
+            <TaxiCard data={cabDummy[0]} urlTo="/custom/journeyDetails"/>
 
             <div className="flex flex-col">
      <h1 className="text-text-lg text-green-400">Total Fare: 4500/-    </h1>
