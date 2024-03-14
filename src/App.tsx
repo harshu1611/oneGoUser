@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
@@ -11,7 +11,8 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
+import Tab1 from './pages/Login';
+import Login from './pages/Login';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 
@@ -35,44 +36,87 @@ import '@ionic/react/css/typography.css';
 import './theme/variables.css';
 
 import './input.css'
+import Home from './pages/customised/Home';
+import SecondJourney from './pages/customised/SecondJourney';
+import JourneyOptions from './pages/customised/JourneyOptions';
+import supabase from './utils/supabase';
+import { useEffect, useState } from 'react';
+import { UseDispatch, useDispatch, useSelector } from 'react-redux';
+import { getOtpVerified, getUserId } from './redux/store';
+import Otp from './pages/Otp';
+import { updateJourney, updateUID } from './redux/states/User';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
+const App: React.FC = () => {
+const dispatch=useDispatch()
+  const [session, setSession] = useState<any>(null)
+const [uid,setUid]=useState<any>(null)
+
+
+useEffect(() => {
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    setSession(session)
+  })
+
+
+
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((_event, session) => {
+    setSession(session)
+    dispatch(updateUID(session?.user))
+    dispatch(updateJourney("Rail1"))
+  })
+
+  if(session && session.user){
+    setUid(session?.user.id)
+    // dispatch(updateUID(session.user))
+  } 
+
+  return () => subscription.unsubscribe()
+},[])
+
+
+console.log(useSelector(getUserId))
+
+const otp= useSelector(getOtpVerified)
+
+console.log(otp)
+ return(
+<IonApp>
+<IonReactRouter>
+  <IonTabs>
+    <IonRouterOutlet>
+      <Route path="/login" component={Login}/>
+      <Route path="/custom" component={Home}/>
+    </IonRouterOutlet>
+    <IonTabBar slot="bottom">
+          <IonTabButton tab="book" href="/book">
             <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="customised" href="/custom">
             <IonIcon aria-hidden="true" icon={ellipse} />
             <IonLabel>Tab 2</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
+         
         </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+  </IonTabs>
+</IonReactRouter>
+
+     
+   
+   
+    
+   
+    
+
   </IonApp>
-);
+ 
+)
+  
+ 
+};
 
 export default App;
