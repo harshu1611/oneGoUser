@@ -46,6 +46,8 @@ import { getOtpVerified, getUserId } from './redux/store';
 import Otp from './pages/Otp';
 import { updateJourney, updateUID } from './redux/states/User';
 import Booking from './pages/booking/Booking';
+import JourneyDetails from './pages/customised/JourneyDetails';
+import ConfirmBooking from './pages/customised/ConfirmBooking';
 
 setupIonicReact();
 
@@ -89,8 +91,13 @@ console.log(otp)
 <IonReactRouter>
   <IonTabs>
     <IonRouterOutlet>
-      <Route path="/login" component={Login}/>
+    <Route path="/login" component={Login}/>
       <Route path="/custom" component={Home}/>
+      <Route path="/custom/secondJourney" component={SecondJourney}/>
+      <Route path="/custom/secondJourney/options" component={JourneyOptions}/>
+      <Route path="/custom/journeyDetails" component={JourneyDetails}/>
+      <Route path="/confirm" component={ConfirmBooking}/>
+
       <Route path="/booking" component={Booking}/>
     </IonRouterOutlet>
     <IonTabBar slot="bottom">
