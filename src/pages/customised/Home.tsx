@@ -13,6 +13,7 @@ const Home: React.FC=()=>{
     const [trainFrom, setTrainFrom]= useState("")
     const [trainTo, setTrainTo]= useState("")
     const [trainDOJ, setTrainDOJ]= useState<any>()
+    const [details,showDetails]=useState(false)
 const dispatch=useAppDispatch()
     useEffect(() => {
         dispatch(updateJourney("rail2"))
@@ -32,12 +33,13 @@ const dispatch=useAppDispatch()
           <FaArrowAltCircleDown className='self-center' color='#1656B7' size={20}/>
           <input className='w-full h-auto p-2 border-primaryBlue border-[1px] rounded-lg' title='To' placeholder='To' onChange={(e)=>setTrainTo(e.target.value)} value={trainTo}></input>
           <input className='w-full h-auto p-2 border-primaryBlue border-[1px] rounded-lg text-primaryBlue' placeholder='Date Of Journey' type='' onFocus={(e)=>(e.target.type="date")} onChange={(e)=>setTrainDOJ(e.target.value)} value={trainDOJ}></input>
-          <button className='w-32 h-10 bg-primaryBlue border-2 text-white rounded-lg p-1 self-center font-semibold' onClick={ ()=>{} }>Show Options</button>
+          <button className='w-32 h-10 bg-primaryBlue border-2 text-white rounded-lg p-1 self-center font-semibold' onClick={ ()=>{showDetails(true)} }>Show Options</button>
           </div>
          </form>
 
-
-         <div className='p-2 bg-white space-y-2'>
+        {
+            details ?
+            <div className='p-2 bg-white space-y-2'>
          <div className="flex flex-row justify-between">
                     <h1 className={`text-[15px] ${startingMode=="Train" ? 'text-black underline font-semibold': 'text-gray-600 font-semibold'}`} onClick={()=>{setStartingMode("Train")}} >TRAIN</h1>    
                     <h1 className={`text-[15px] ${startingMode=="Cab" ? 'text-black underline font-semibold': 'text-gray-600 font-semibold'}`} onClick={()=>{setStartingMode("Cab")}}>CABS</h1>                    
@@ -45,15 +47,27 @@ const dispatch=useAppDispatch()
                     <h1 className={`text-[15px] ${startingMode=="Bus" ? 'text-black underline font-semibold' : 'text-gray-600 font-semibold'}`} onClick={()=>{setStartingMode("Bus")}}>BUS</h1>                    
 
                         </div>
-            <div>
-            {trainDummy.map((data:any)=>{
+            
+        
+        <div>
+{trainDummy.map((data:any)=>{
+                
                 return(
+                    
                     <TrainCard data={data} key={data.key}/>
                 )
             })}
-            </div>
+
+        </div>
+        
           
         </div>
+            
+            :
+''
+
+        }
+         
             </div>
  
 

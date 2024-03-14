@@ -49,6 +49,8 @@ const TrainCard: React.FC<{data:any }> = ({data}) => {
        
         // e.preventDefault()
 
+        history.push("/custom/secondJourney")
+        history.go(0)
      }}>Select Train</button>
     {/* </Link> */}
 
@@ -57,14 +59,14 @@ const TrainCard: React.FC<{data:any }> = ({data}) => {
      <div className="flex flex-row h-auto justify-evenly items-center">
       <FaTrain size={26}/>
         <div className="flex flex-col ">
-        <h1 className="text-gray-400 text-sm">{depart.getHours()} : {depart.getMinutes()}</h1>
-        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{depart.getDate()}. {depart.getMonth()}. {depart.getFullYear()}</h1>
+        <h1 className="text-gray-400 text-sm">{data.departTime}</h1>
+        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{data.depart}</h1>
         <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{data.from}</h1>
         </div>
         <HiMiniArrowLongRight size={30}/>
         <div className="flex flex-col ">
-        <h1 className="text-gray-400 text-sm">{arrival.getHours()} : {arrival.getMinutes()}</h1>
-        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{arrival.getDate()}. {arrival.getMonth()}. {arrival.getFullYear()}</h1>
+        <h1 className="text-gray-400 text-sm">{data.arrivalTime}</h1>
+        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{data.arrival}</h1>
         <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{data.to}</h1>
         </div>
      </div>

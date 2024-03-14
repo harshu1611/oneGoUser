@@ -1,4 +1,4 @@
-import { IonPage } from "@ionic/react";
+import { IonPage, useIonRouter } from "@ionic/react";
 import React, { useEffect, useState } from "react";
 import { HiMiniArrowLongRight } from "react-icons/hi2";
 import { FaTrain } from "react-icons/fa6";
@@ -7,10 +7,12 @@ import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 import { getJourney, getUserId } from "../../redux/store";
 // import supabase from "../utils/supabase";
+import { trainDummy } from "../../dummy";
+import TrainCardOptions from "../../components/TrainCardOptions";
  const SecondJourney : React.FC=()=>{
     
     const history=useHistory()
-
+    const router = useIonRouter()
         const [date, setDate]= useState<any>()
         const [ time, setTime] = useState<any>()
         // var [hours, minutes] = time?.split(':');
@@ -28,7 +30,7 @@ import { getJourney, getUserId } from "../../redux/store";
         
         return(
             <>
-       <div className="flex flex-col">
+       <div className="flex flex-col justify-center items-center">
         <div className="h-auto w-full bg-primaryBlue rounded-b-xl items-center justify-center flex flex-row">
             <div className="left-2 top-0 absolute flex items-center">
             <h1 className=" text-white text-lg font-semibold" onClick={()=>{history.goBack()}}>{'<'}</h1>
@@ -36,29 +38,9 @@ import { getJourney, getUserId } from "../../redux/store";
        
                 <h1 className="text-white text-sm justify-center self-center items-center font-semibold">Add Further Journey</h1>
             </div>
-            <div className="flex flex-col bg-gray-200 -rounded-t-[12px] items-center">
-                <div className="flex -mt-4">
-                    <h1 className="text-sm font-semibold">Selected Train:</h1>
-                </div>
-                <div className="flex flex-row -mt-8">
-                    <h1 className="text-sm font-semibold">12269:DURONTO EXPRESS</h1>
-                  
-                </div>
-                <div className="flex flex-row h-auto justify-evenly items-center w-full -mt-6">
-                <FaTrain size={26}/>
-        <div className="flex flex-col ">
-        <h1 className="text-gray-400 text-sm">5.15 AM</h1>
-        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">08/03/2024</h1>
-        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">Raipur</h1>
-        </div>
-        <HiMiniArrowLongRight size={30}/>
-        <div className="flex flex-col ">
-        <h1 className="text-gray-400 text-sm">5.15 AM</h1>
-        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">09/03/2024</h1>
-        <h1 className="text-black font-semibold text-[10px] -mt-[10px]">Delhi</h1>
-        </div>
-     </div>
-            </div>
+           
+             <h1 className="text-sm font-semibold">Selected Train:</h1>
+            <TrainCardOptions data={trainDummy[0]}/>
             <h1 className="text-sm font-semibold text-primaryBlue self-center ">Where Do You Want To Go Next?</h1>
             <div className="flex flex-col px-2 space-y-2">
             <input className='w-full h-auto p-2 border-primaryBlue border-[1px] rounded-lg' title='From' placeholder='From' ></input>
@@ -79,9 +61,14 @@ import { getJourney, getUserId } from "../../redux/store";
             <button className='w-auto h-10  border-2 border-solid text-primaryBlue rounded-lg p-1 self-center font-semibold' onClick={ (e)=>{
                 e.preventDefault();
 
-                history.push("/secondJourney/options")
-                history.go(0)
+                // history.push("custom/secondJourney/options")
+                // history.go(0)
+
+                window.location.href="custom/secondJourney/options"
             } }>Search Options</button>
+
+
+            <button className="text-primaryBlue text-lg underline">Skip</button>
             </div>
        </div>
        </>

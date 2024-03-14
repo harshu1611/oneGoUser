@@ -25,10 +25,12 @@ const TaxiCard: React.FC = () => {
     </Link> */}
     <button className="border-solid border p-[4px] rounded-xl border-primaryBlue text-sm text-primaryBlue" onClick={(e)=>{
       e.preventDefault()
-     history.push("/secondJourney")
-     history.go(0)
+    //  history.push("/secondJourney")
+    //  history.go(0)
 
    // router.push("/secondJourney", "forward", "push")
+
+   window.location.href="/custom/journeyDetails"
 
      }}>Select Taxi</button>
 </div>
@@ -56,7 +58,11 @@ const TaxiCard: React.FC = () => {
         
         </div>
      </div>
-    
+    <div className="flex flex-row justify-between">
+     <h1 className="text-green-400 text-[16px]">Total Fare: 3000/-</h1>
+     <h1 className="text-green-400 text-[16px]">CO2 Emission: 43 gm/ km</h1>
+    </div>
+   
   </div>;
 };
 
