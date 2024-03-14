@@ -22,7 +22,7 @@ const TaxiCard: React.FC<{data:any, urlTo: string}> = ({data,urlTo}) => {
         <h1 className="text-black font-semibold text-sm">{data.car}</h1>
        
      </div>
-     <div className="bg-green-400 text-white text-xs font-semibold mt-4  p-1 rounded-lg">EV Vehicle</div>
+     <div className="bg-green-400 text-white text-xs font-semibold mt-4  p-1 rounded-lg w-10 items-center flex justify-center">EV</div>
     {/* <Link to ="/home/secondJourney">
     
     </Link> */}

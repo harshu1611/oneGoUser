@@ -7,6 +7,7 @@ import { trainDummy } from "../../dummy";
 import { key } from "ionicons/icons";
 import { useAppDispatch } from "../../redux/store";
 import { updateJourney } from "../../redux/states/User";
+import logo from '../../../images/One.png'
 
 const Home: React.FC=()=>{
     const [startingMode, setStartingMode]= useState("Train")
@@ -22,11 +23,11 @@ const dispatch=useAppDispatch()
     return (
         <IonPage>
             <div className="flex flex-col overflow-scroll">
-                <div className="flex flex-col bg-primaryBlue h-auto p-2">
-                    <h1 className="text-white text-sm font-semibold">Select Initial Mode</h1>
-                    <h1 className="text-white text-sm font-semibold" onClick={async()=> await supabase.auth.signOut()}>Log Out</h1>
+                <div className="flex flex-col bg-white h-auto p-2 items-center justify-center" >
+                        <img src={logo} className="h-36 w-36"/>
                    
                 </div>
+                <div className="flex bg-primaryBlue w-full text-white text-s font-semibold items-center justify-center h-14">Customised Booking</div>
                 <form className='w-full h-full' onSubmit={(e)=>e.preventDefault()} >
           <div className='flex flex-col bg-white rounded-t-xl p-2 space-y-2'>
           <input className='w-full h-auto p-2 border-primaryBlue border-[1px] rounded-lg' title='From' placeholder='From' onChange={(e)=>setTrainFrom(e.target.value)} value={trainFrom}></input>

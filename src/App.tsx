@@ -49,6 +49,7 @@ import Booking from './pages/booking/Booking';
 import JourneyDetails from './pages/customised/JourneyDetails';
 import ConfirmBooking from './pages/customised/ConfirmBooking';
 import BookingPage from './pages/booking/BookingPage';
+import LiveStatus from './pages/trainLive/LiveStatus';
 
 setupIonicReact();
 
@@ -100,15 +101,21 @@ console.log(otp)
       <Route path="/confirm" component={ConfirmBooking}/>
       <Route path="/booking-page" component={BookingPage}/>
       <Route path="/booking" component={Booking}/>
+      <Route path="/train" component={LiveStatus}/>
+
     </IonRouterOutlet>
     <IonTabBar slot="bottom">
-          <IonTabButton tab="book" href="/book">
+          <IonTabButton tab="booking" href="/booking">
             <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Home</IonLabel>
+            <IonLabel>Smart Booking</IonLabel>
           </IonTabButton>
           <IonTabButton tab="customised" href="/custom">
             <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonLabel>Customised</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="train " href="/train">
+            <IonIcon aria-hidden="true" icon={ellipse} />
+            <IonLabel>Train Assist</IonLabel>
           </IonTabButton>
          
         </IonTabBar>
