@@ -62,3 +62,44 @@ export const cabDummy=[
 
 },
 ]
+
+export const mmData=[
+    {
+        from: "Raipur",
+        to: "Manali",
+        fare: 4800,
+        dTime: "16.25",
+        aTime: "23.45",
+        dDate: "16th March 2024",
+        aDate: "17th March 2024",
+        greenRide: true,
+        duration: " 32 Hours"
+
+
+    },
+    {
+        from: "Raipur",
+        to: "Manali",
+        fare: 4400,
+        dTime: "11.25",
+        aTime: "23.45",
+        dDate: "16th March 2024",
+        aDate: "17th March 2024",
+        greenRide: false,
+        duration: " 37 Hours"
+
+
+    }
+]
+
+export const mmtTrain=[{
+    trainNo: 12409,
+    name: "GONDWANA SF EXP",
+    from: "Raipur",
+    to: "New Delhi",
+    dTime: "7.40 AM",
+    dDate: "16 March 2024",
+    aTime: "05.00 AM",
+    aDate: "17 March 2024",
+    fare: 1630
+}]

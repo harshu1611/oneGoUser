@@ -4,6 +4,8 @@ import { useHistory } from "react-router";
 import TrainCardOptions from "../../components/TrainCardOptions";
 import { cabDummy, trainDummy } from "../../dummy";
 import TaxiCard from "../../components/TaxiCard";
+import TrainCard from "../../components/TrainCard";
+import TrainCardFinal from "../../components/TrainCardFinal";
 
 const JourneyDetails: React.FC=()=>{
     const history=useHistory()
@@ -23,7 +25,7 @@ const JourneyDetails: React.FC=()=>{
             </div>
             
             </div>
-            <TrainCardOptions data={trainDummy[0]}/>
+            <TrainCardFinal data={trainDummy[0]} urlTo="/"/>
             <h1 className="text-xl text-black">+</h1>
             <TaxiCard data={cabDummy[0]} urlTo="/custom/journeyDetails"/>
 
@@ -32,7 +34,7 @@ const JourneyDetails: React.FC=()=>{
 
      <button className="text-white bg-primaryBlue rounded-xl p-2" onClick={()=>{
         window.location.href="/confirm"
-     }}>Make Payment</button>
+     }}>Confirm Booking</button>
     </div>
             </div>
 

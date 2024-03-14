@@ -50,6 +50,10 @@ import JourneyDetails from './pages/customised/JourneyDetails';
 import ConfirmBooking from './pages/customised/ConfirmBooking';
 import BookingPage from './pages/booking/BookingPage';
 import LiveStatus from './pages/trainLive/LiveStatus';
+import smart from '../images/smart.png'
+import custom from '../images/custom.jpeg'
+import { FaTrain } from "react-icons/fa6";
+
 
 setupIonicReact();
 
@@ -93,32 +97,41 @@ console.log(otp)
 <IonReactRouter>
   <IonTabs>
     <IonRouterOutlet>
+      <Redirect exact path='/' to='/login'/>
     <Route path="/login" component={Login}/>
+    <Route path="/book" component={Booking}/>
       <Route path="/custom" component={Home}/>
       <Route path="/custom/secondJourney" component={SecondJourney}/>
       <Route path="/custom/secondJourney/options" component={JourneyOptions}/>
       <Route path="/custom/journeyDetails" component={JourneyDetails}/>
       <Route path="/confirm" component={ConfirmBooking}/>
       <Route path="/booking-page" component={BookingPage}/>
-      <Route path="/booking" component={Booking}/>
+      
       <Route path="/train" component={LiveStatus}/>
 
     </IonRouterOutlet>
-    <IonTabBar slot="bottom">
-          <IonTabButton tab="booking" href="/booking">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Smart Booking</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="customised" href="/custom">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Customised</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="train " href="/train">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Train Assist</IonLabel>
-          </IonTabButton>
-         
-        </IonTabBar>
+    {session ?
+        <IonTabBar slot="bottom">
+        <IonTabButton tab="book" href="/book">
+          {/* <IonIcon aria-hidden="true" icon={triangle} />
+           */}
+           <img src={smart} className='h-8 w-8'></img>
+          <IonLabel>Smart Booking</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="custom" href="/custom">
+        <img src={custom} className='h-8 w-8'></img>
+          <IonLabel>Customised</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="train" href="/train">
+         <FaTrain size={28} color='black'/>
+          <IonLabel>Train Assist</IonLabel>
+        </IonTabButton>
+       
+      </IonTabBar>
+    :
+    ''
+    }
+
   </IonTabs>
 </IonReactRouter>
 

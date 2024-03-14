@@ -6,6 +6,7 @@ import { useIonRouter } from "@ionic/react";
 import { Link } from "react-router-dom";
 import { FaTrain } from "react-icons/fa6";
 // import car from '../../assets/images/car.png'
+import car from '../../images/ev.png'
 
 
 
@@ -39,7 +40,7 @@ const TaxiCard: React.FC<{data:any, urlTo: string}> = ({data,urlTo}) => {
 </div>
     
      <div className="flex flex-row h-auto justify-evenly items-center space-x-3">
-      <img className="h-10 w-20"/>
+      <img className="h-10 w-20" src={car}/>
         <div className="flex flex-col ">
         <h1 className="text-gray-400 text-sm">{data.departTime}</h1>
         <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{data.depart}</h1>

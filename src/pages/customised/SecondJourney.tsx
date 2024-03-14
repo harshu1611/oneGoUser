@@ -9,12 +9,15 @@ import { getJourney, getUserId } from "../../redux/store";
 // import supabase from "../utils/supabase";
 import { trainDummy } from "../../dummy";
 import TrainCardOptions from "../../components/TrainCardOptions";
+import { ClipLoader } from "react-spinners";
+
  const SecondJourney : React.FC=()=>{
     
     const history=useHistory()
     const router = useIonRouter()
         const [date, setDate]= useState<any>()
         const [ time, setTime] = useState<any>()
+        const [loading, setLoading]= useState(true)
         // var [hours, minutes] = time?.split(':');
 //         var javascriptTime = new Date();
 // javascriptTime.setHours(parseInt(hours, 10));
@@ -26,11 +29,17 @@ import TrainCardOptions from "../../components/TrainCardOptions";
         console.log(useSelector(getUserId))
         console.log(journey)
 
-   
+   setTimeout(()=>{
+    setLoading(false)
+   }, 3000)
         
         return(
             <>
-       <div className="flex flex-col justify-center items-center">
+       <div className="flex flex-col justify-center items-center ">
+        {loading? <div className="flex h-full w-full justify-center items-center mt-20">
+            <ClipLoader/>
+        </div> :
+        <>
         <div className="h-auto w-full bg-primaryBlue rounded-b-xl items-center justify-center flex flex-row">
             <div className="left-2 top-0 absolute flex items-center">
             <h1 className=" text-white text-lg font-semibold" onClick={()=>{history.goBack()}}>{'<'}</h1>
@@ -70,6 +79,9 @@ import TrainCardOptions from "../../components/TrainCardOptions";
 
             <button className="text-primaryBlue text-lg underline">Skip</button>
             </div>
+        </>
+        }
+        
        </div>
        </>
        

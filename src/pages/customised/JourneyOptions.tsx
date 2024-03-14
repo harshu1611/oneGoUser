@@ -7,14 +7,26 @@ import TaxiCard from "../../components/TaxiCard";
 
 import { trainDummy } from "../../dummy";
 import { cabDummy } from "../../dummy";
+import { ClipLoader } from "react-spinners";
 const JourneyOptions: React.FC=()=>{
     const history=useHistory();
     const [showJourney, setShowJourney]=useState(false)
     const [selectedType, setSelectedType] =useState("Trains")
+    const [loading, setLoading]= useState(true)
 
     console.log(showJourney)
+    
+   setTimeout(()=>{
+    setLoading(false)
+   }, 3000)
+        
     return(
         <div className="flex flex-col h-full">
+            {loading? <div className="h-full w-full justify-center items-center flex-col">
+                <ClipLoader/>
+            </div>
+            : 
+            <>
             <div className="flex- flex-col bg-primaryBlue h-auto w-full rounded-b-xl ">
             <div className="flex flex-row h-auto w-full bg-primaryBlue justify-between p-2">
             <div className=" items-center">
@@ -84,6 +96,9 @@ const JourneyOptions: React.FC=()=>{
 
             :''}
            </div>
+            </>
+            }
+            
         </div>
     )
 }
