@@ -23,9 +23,6 @@ const Booking: React.FC = () => {
     <IonPage className="bg-white">
       <div className="flex flex-col overflow-scroll bg-white">
         <div className="flex flex-col bg-primaryBlue h-auto p-2">
-          <h1 className="text-white text-sm font-semibold">
-            Select Initial Mode
-          </h1>
           <h1
             className="text-white text-sm font-semibold"
             onClick={async () => await supabase.auth.signOut()}
@@ -71,11 +68,7 @@ const Booking: React.FC = () => {
           </div>
         </form>
         <div className="flex-col items-center gap-4">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          
         </div>
       </div>
     </IonPage>
