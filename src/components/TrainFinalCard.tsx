@@ -1,9 +1,9 @@
+import React from "react";
 
-import React from "react"
 import { FaTrain } from "react-icons/fa"
 import { HiMiniArrowLongRight } from "react-icons/hi2"
 
-const TrainCardOptions: React.FC<{data:any}>=({data})=>{
+const TrainFinalCard: React.FC<{data:any}>=({data})=>{
     return (
         <div>
 <div className="flex flex-row justify-center">
@@ -29,8 +29,4 @@ const TrainCardOptions: React.FC<{data:any}>=({data})=>{
 }
 
 
-export default TrainCardOptions
-
-
-
-
+export default TrainFinalCard

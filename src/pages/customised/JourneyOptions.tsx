@@ -33,7 +33,7 @@ const JourneyOptions: React.FC=()=>{
             <div className="h-auto w-full bg-white items-center justify-center flex">
             <div className="flex flex-col p-2 items-center -mt-4">
                 <h1 className="text-sm font-semibold">Your Journey till Now:</h1>
-                <TrainCardOptions/>
+                {/* <TrainCardOptions/> */}
                 </div>
             </div>
             : ''}
