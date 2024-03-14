@@ -9,6 +9,7 @@ import { UseDispatch, useDispatch, useSelector } from "react-redux";
 import { addJourney } from "../redux/states/journey";
 import { getJourney, useAppDispatch } from "../redux/store";
 import { updateJourney, updateUID } from "../redux/states/User";
+import { FaIndianRupeeSign } from "react-icons/fa6";
 
 
 
@@ -36,8 +37,13 @@ const TrainCard: React.FC<{data:any, urlTo : string }> = ({data, urlTo}) => {
 <div className="flex flex-col h-auto -space-y-3  justify-center">
         <h1 className="text-gray-400 text-sm">{data.trainNo}</h1>
         <h1 className="text-black font-semibold text-sm">{data.name}</h1>
+    
      </div>
     {/* <Link to ="/secondJourney"> */}
+    <div className="flex flex-row items-center">
+        <FaIndianRupeeSign color="green"/>
+        <h1 className="text-green-600 text-xs font-semibold">{data.fare}</h1>
+     </div>
     <button className="border-solid border p-[4px] rounded-xl border-primaryBlue text-sm text-primaryBlue" onClick={async(e)=>{
     //   dispatch(updateUID())
     //   dispatch(addJourney("journeyData"))
@@ -52,6 +58,8 @@ const TrainCard: React.FC<{data:any, urlTo : string }> = ({data, urlTo}) => {
         history.push(urlTo)
         history.go(0)
      }}>Select Train</button>
+
+    
     {/* </Link> */}
 
 </div>

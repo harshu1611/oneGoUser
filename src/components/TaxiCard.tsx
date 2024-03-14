@@ -9,6 +9,7 @@ import { FaTrain } from "react-icons/fa6";
 
 
 
+
 const TaxiCard: React.FC<{data:any, urlTo: string}> = ({data,urlTo}) => { 
 
    const history= useHistory();
@@ -59,7 +60,7 @@ const TaxiCard: React.FC<{data:any, urlTo: string}> = ({data,urlTo}) => {
         
         </div>
      </div>
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-col -space-y-2">
      <h1 className="text-green-400 text-[16px]">Total Fare: {data.fare}</h1>
      <h1 className="text-green-400 text-[16px]">CO2 Emission: {data.CO2} gm /Km</h1>
     </div>

@@ -8,7 +8,8 @@ export const trainDummy=[
     depart:"08/03/2024",
     departTime: "11.45 AM",
     arrival:"09/03/2024",
-    arrivalTime: "6.00 AM"
+    arrivalTime: "6.00 AM",
+    fare: "1200"
 },
 {
     key:'2',
@@ -20,7 +21,8 @@ export const trainDummy=[
     departTime: "11.45 AM",
     arrival:"09/03/2024",
     arrivalTime: "6.00 AM",
-    // arrival:"09/03/2024"
+    // arrival:"09/03/2024",
+    fare: "1200"
 },
 {
     key:'3',
@@ -31,8 +33,9 @@ export const trainDummy=[
     depart:"08/03/2024",
     departTime: "11.45 AM",
     arrival:"09/03/2024",
-    arrivalTime: "6.00 AM"
-    // arrival:"09/03/2024"
+    arrivalTime: "6.00 AM",
+    // arrival:"09/03/2024",
+    fare: "1200"
 },
 
 

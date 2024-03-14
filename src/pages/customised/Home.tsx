@@ -54,7 +54,7 @@ const dispatch=useAppDispatch()
                 
                 return(
                     
-                    <TrainCard data={data} key={data.key} urlTo="/custom/secondOptions"/>
+                    <TrainCard data={data} key={data.key} urlTo="/custom/secondJourney"/>
                 )
             })}
 
