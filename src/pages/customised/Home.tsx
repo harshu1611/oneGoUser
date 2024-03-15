@@ -31,7 +31,7 @@ const Home: React.FC=()=>{
         <IonPage>
             <div className="flex flex-col overflow-scroll">
                 <div className="flex flex-col bg-white h-auto p-2 items-center justify-center" >
-                        <img src={logo} className="h-36 w-36"/>
+                        <img src={logo} className="h-auto w-auto"/>
                    
                 </div>
                 <div className="flex bg-primaryBlue w-full text-white text-s font-semibold items-center justify-center h-14">Customised Booking</div>

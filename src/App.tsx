@@ -110,7 +110,7 @@ console.log(otp)
       <Route path="/train" component={LiveStatus}/>
 
     </IonRouterOutlet>
-    {session ?
+  
         <IonTabBar slot="bottom">
         <IonTabButton tab="book" href="/book">
           {/* <IonIcon aria-hidden="true" icon={triangle} />
@@ -128,9 +128,7 @@ console.log(otp)
         </IonTabButton>
        
       </IonTabBar>
-    :
-    ''
-    }
+    
 
   </IonTabs>
 </IonReactRouter>

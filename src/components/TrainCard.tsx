@@ -78,7 +78,7 @@ const TrainCard: React.FC<{data:any, urlTo : string }> = ({data, urlTo}) => {
         <h1 className="text-black font-semibold text-[10px] -mt-[10px]">{data.to}</h1>
         </div>
      </div>
-    
+     <h1 className="text-red-600 text-sm underline font-semibold text-center">Predicted Delay : 02.55 Hours</h1>
   </div>;
 };
 

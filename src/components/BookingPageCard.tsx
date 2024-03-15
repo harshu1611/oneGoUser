@@ -52,6 +52,7 @@ const BookingPageCard = () => {
             Train Fare
           </div>
         </div>
+        <h1 className="text-red-600 text-sm underline font-semibold text-center">Predicted Delay : 02.55 Hours</h1>
       </div>
 
       <div className="border-[#e3dada83] border-0 rounded-lg w-[93vw] border-t-2 m-auto shadow-lg flex-col justify-center pt-3 mt-4">

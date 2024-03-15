@@ -38,7 +38,7 @@ const Booking: React.FC = () => {
     <IonPage className="bg-white overflow-scroll">
       <div className="flex flex-col overflow-scroll bg-white">
        <div className="flex flex-col bg-white h-auto p-2 items-center justify-center" >
-                        <img src={logo} className="h-48 w-48"/>
+                        <img src={logo} className="h-auto w-auto"/>
                    
                 </div>
                 <div className="flex bg-primaryBlue w-full text-white text-s font-semibold items-center justify-center h-14 -mt-4">Smart Scheduling</div>
